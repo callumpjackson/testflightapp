@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="Description" content="IBM Cloud Pak">
+    <meta http-equiv="Cache-control" content="no-cache"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <link rel='icon' href="/common-nav/api/graphics/ICP-favicon.png">
+    <title>IBM Cloud Pak</title>
+</head>
+
+<body>
+    <div id="page-content" />
+    <script>
+      if (typeof window.__REACT_DEVTOOLS_GLOBAL_HOOK__ === "object") {
+        for (let [key, value] of Object.entries(window.__REACT_DEVTOOLS_GLOBAL_HOOK__)) {
+          window.__REACT_DEVTOOLS_GLOBAL_HOOK__[key] = typeof value == "function" ? ()=>{} : null;
+        }
+      }
+    </script>
+    <script type="text/javascript">
+      function init(){
+        var props = JSON.parse(document.getElementById("props").textContent)
+        renderLoginComponent(document.getElementById("page-content"), props)
+      }
+    </script>
+    <script>
+      function appendAssets(data) {
+        const assets = Object.keys(data)
+        function addAsset(type) {
+          var asset = document.createElement(type === "css" ? "link" : "script")
+          if (type === "css") {
+            asset.href = data.css.path
+            type="text/css"
+            asset.rel = "stylesheet"
+            document.getElementsByTagName("head")[0].appendChild(asset)
+          } else if (type === "props") {
+            asset.id = "props"
+            asset.type = "type='application/json'"
+            asset.text = JSON.stringify(data.props)
+            document.body.appendChild(asset)
+          } else {
+            asset.src = data[type].path
+            asset.defer = true
+            asset.async = false
+            document.body.appendChild(asset)
+            if (type === "js") {
+              asset.onload = init
+            }
+          }
+        }
+        assets.forEach(function(asset) {
+          addAsset(asset)
+        })
+      }
+    </script>
+    <script src="/common-nav/api/v1/login?callback=appendAssets"></script>
+</body>
+</html>

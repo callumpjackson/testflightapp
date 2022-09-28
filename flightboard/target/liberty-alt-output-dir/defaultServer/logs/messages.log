@@ -1,0 +1,22 @@
+********************************************************************************
+product = Open Liberty 22.0.0.10 (wlp-1.0.69.cl221020220912-1100)
+wlp.install.dir = /home/callum/git/eem-demo/flightboard/target/liberty/wlp/
+server.output.dir = /home/callum/git/eem-demo/flightboard/target/liberty-alt-output-dir/defaultServer/
+java.home = /usr/lib/jvm/java-11-openjdk-amd64
+java.version = 11.0.16
+java.runtime = OpenJDK Runtime Environment (11.0.16+8-post-Ubuntu-0ubuntu122.04)
+os = Linux (5.15.0-1017-azure; amd64) (en_GB)
+process = 358254@callum-Virtual-Machine
+Classpath = /home/callum/git/eem-demo/flightboard/target/liberty/wlp/bin/tools/ws-server.jar
+Java Library path = /usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
+********************************************************************************
+[28/09/2022, 13:28:15:120 BST] 0000000c com.ibm.ws.kernel.launch.internal.FrameworkManager           A CWWKE0001I: The server defaultServer has been launched.
+[28/09/2022, 13:28:15:563 BST] 0000001b com.ibm.ws.config.xml.internal.ServerXMLConfiguration        A CWWKG0093A: Processing configuration drop-ins resource: /home/callum/git/eem-demo/flightboard/target/liberty/wlp/usr/servers/defaultServer/configDropins/overrides/liberty-plugin-variable-config.xml
+[28/09/2022, 13:28:15:785 BST] 0000000c com.ibm.ws.kernel.launch.internal.FrameworkManager           I CWWKE0002I: The kernel started after 0.843 seconds
+[28/09/2022, 13:28:15:791 BST] 00000024 com.ibm.ws.kernel.feature.internal.FeatureManager            I CWWKF0007I: Feature update started.
+[28/09/2022, 13:28:15:857 BST] 00000024 com.ibm.ws.kernel.feature.internal.FeatureManager            A CWWKF0012I: The server installed the following features: [jaxrs-2.1, jaxrsClient-2.1, jsonb-1.0, jsonp-1.1, servlet-4.0].
+[28/09/2022, 13:28:15:857 BST] 00000024 com.ibm.ws.kernel.feature.internal.FeatureManager            I CWWKF0008I: Feature update completed in 0.078 seconds.
+[28/09/2022, 13:28:15:858 BST] 00000024 com.ibm.ws.kernel.feature.internal.FeatureManager            A CWWKF0026I: The server defaultServer is ready to build a smaller package.
+[28/09/2022, 13:28:15:861 BST] 00000025 com.ibm.ws.runtime.update.internal.RuntimeUpdateManagerImpl  A CWWKE1100I: Waiting for up to 30 seconds for the server to quiesce.
+[28/09/2022, 13:28:15:874 BST] 00000025 com.ibm.ws.runtime.update.internal.RuntimeUpdateManagerImpl  I CWWKE1101I: Server quiesce complete.
+[28/09/2022, 13:28:15:989 BST] 0000000c com.ibm.ws.kernel.launch.internal.FrameworkManager           A CWWKE0036I: The server defaultServer stopped after 1.052 seconds.

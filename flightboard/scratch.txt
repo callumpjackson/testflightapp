@@ -1,0 +1,34 @@
+curl -v -d @./test.json -H "Content-Type: application/json" http://localhost:9080/FlightBoard/flightboard/flight
+curl -v -X PATCH -d @./test-delay.json -H "Content-Type: application/json" http://localhost:9080/FlightBoard/flightboard/flight/2022-01-26/KLM34
+
+curl -v http://localhost:9080/FlightBoard/flightboard/flights
+curl -v http://localhost:9080/FlightBoard/flightboard/flight/2022-01-26/KLM34
+
+curl -v -H "Content-Type: application/json" -d @./test-message.json http://light-insecure-ibm-es-recapi-insecure-cp4i.ben-cluster2-403315c8b53cfaaf40d7fd4ee4d91267-0000.eu-gb.containers.appdomain.cloud/topics/flight-delays/records
+
+curl -v http://localhost:9080/FlightBoard/flightboard/flight/2022-01-26/KLM34
+curl -v http://flight-board-cp4i.ben-cluster3-403315c8b53cfaaf40d7fd4ee4d91267-0000.eu-gb.containers.appdomain.cloud/FlightBoard/flightboard/flight/2022-01-26/KLM34
+
+curl -v -X PATCH -d @./test-delay.json -H "Content-Type: application/json" http://flight-board-cp4i.ben-cluster3-403315c8b53cfaaf40d7fd4ee4d91267-0000.eu-gb.containers.appdomain.cloud/FlightBoard/flightboard/flight/2022-01-26/KLM34
+curl -v -X PATCH -d @./test-delay.json -H "Content-Type: application/json" http://localhost:9080/FlightBoard/flightboard/flight/2022-04-25/EZY%206005
+
+curl -v -H "Content-Type: application/json" http://localhost:9080/FlightBoard/flightboard/flights
+curl -v -H "Content-Type: application/json" http://flight-board-app-test.ben-cluster3-403315c8b53cfaaf40d7fd4ee4d91267-0000.eu-gb.containers.appdomain.cloud/FlightBoard/flightboard/flights
+
+curl -v -X POST -H "Content-Type: application/json" http://flight-board-cp4i.ben-cluster3-403315c8b53cfaaf40d7fd4ee4d91267-0000.eu-gb.containers.appdomain.cloud/FlightBoard/flightboard/update
+curl -v -X POST -H "Content-Type: application/json" http://localhost:9080/FlightBoard/flightboard/update
+
+curl -v -H "Content-Type: application/json" "http://localhost:3000/departures?number=KL%201046&scheduledDeparture"
+curl -v -H "Content-Type: application/json" "http://localhost:3000/departures?delay_gte=5"
+curl -v -H "Content-Type: application/json" "http://localhost:3000/departures?scheduledDeparture_gte=10:00&scheduledDeparture_lte=15:00"
+
+curl -v http://flight-board-flight-board.ben-cluster3-403315c8b53cfaaf40d7fd4ee4d91267-0000.eu-gb.containers.appdomain.cloud/FlightBoard/flightboard/flights
+curl -v -X PATCH -d @./test-delay.json -H "Content-Type: application/json" http:/flight-board-app-test.ben-cluster3-403315c8b53cfaaf40d7fd4ee4d91267-0000.eu-gb.containers.appdomain.cloud/FlightBoard/flightboard/flight/2022-04-24/EZY%206167
+
+kubectl get secret all-icr-io -n default -o yaml | sed 's/default/cp4i/g' | kubectl create -n cp4i -f -   
+
+oc exec -it flights-couchdb-0 -c couchdb -- \
+    curl -s \
+    http://127.0.0.1:5984/flights \
+    -X PUT \
+    -u admin:BwbXeZT2irjq0mrc2vAv

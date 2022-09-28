@@ -1,0 +1,72 @@
+[
+    {
+        "delay": 0,
+        "destination": "Amsterdam",
+        "destinationCode": "AMS",
+        "estimatedDepartureTime": "2022-04-24:18:10",
+        "id": null,
+        "number": "EZY 6167",
+        "origin": "Bristol",
+        "originCode": "BRS",
+        "scheduledArrivalDate": null,
+        "scheduledArrivalTime": null,
+        "scheduledDepartureDate": "2022-04-24",
+        "scheduledDepartureTime": "18:10"
+    },
+    {
+        "delay": 0,
+        "destination": "Paris CDG",
+        "destinationCode": "CDG",
+        "estimatedDepartureTime": "2022-04-24:18:30",
+        "id": null,
+        "number": "EZY 6223",
+        "origin": "Bristol",
+        "originCode": "BRS",
+        "scheduledArrivalDate": null,
+        "scheduledArrivalTime": null,
+        "scheduledDepartureDate": "2022-04-24",
+        "scheduledDepartureTime": "18:30"
+    },
+    {
+        "delay": 0,
+        "destination": "Warsaw WMI",
+        "destinationCode": "WMI",
+        "estimatedDepartureTime": "2022-04-24:18:40",
+        "id": null,
+        "number": "FR 4135",
+        "origin": "Bristol",
+        "originCode": "BRS",
+        "scheduledArrivalDate": null,
+        "scheduledArrivalTime": null,
+        "scheduledDepartureDate": "2022-04-24",
+        "scheduledDepartureTime": "18:40"
+    },
+    {
+        "delay": 0,
+        "destination": "Belfast Intl",
+        "destinationCode": "BFS",
+        "estimatedDepartureTime": "2022-04-24:19:20",
+        "id": null,
+        "number": "EZY 447",
+        "origin": "Bristol",
+        "originCode": "BRS",
+        "scheduledArrivalDate": null,
+        "scheduledArrivalTime": null,
+        "scheduledDepartureDate": "2022-04-24",
+        "scheduledDepartureTime": "19:20"
+    },
+    {
+        "delay": 0,
+        "destination": "Newcastle",
+        "destinationCode": "NCL",
+        "estimatedDepartureTime": "2022-04-24:19:20",
+        "id": null,
+        "number": "EZY 570",
+        "origin": "Bristol",
+        "originCode": "BRS",
+        "scheduledArrivalDate": null,
+        "scheduledArrivalTime": null,
+        "scheduledDepartureDate": "2022-04-24",
+        "scheduledDepartureTime": "19:20"
+    }
+]

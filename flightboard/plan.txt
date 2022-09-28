@@ -1,0 +1,16 @@
+Two db lists:
+    Active flights
+    Schedule entries
+
+Every X minutes (min 5):
+
+    1. Get flights scheduled to take off in the next 4 hours (to or from destination)
+        - Time period is (current time - X minutes) to (current time + 4hrs)
+        - If end of period > midnight then calculate two time periods - from beginning of period to end of day, 
+            and then start of day to end of period.
+        - Query JSON store over both periods to get list of schedule entries
+    2. For each flight:
+        - Check to see if it already exists in the active flight db
+        - If it doesn't, add it with status 'scheduled' or something
+        - Check to see if actual take-off time (schedule + delay) has been reached, if so set status to 'in air'
+        - Check to see if flight should have landed (scheduled landing time + delay), if so set status to landed

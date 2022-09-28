@@ -1,0 +1,9 @@
+{
+    "number": "KLM34",
+    "origin": "LHR",
+    "destination": "AMS",
+    "scheduledTime": "11:30",
+    "departureDate" : "2022-01-26",
+    "delay": "10"
+}
+
