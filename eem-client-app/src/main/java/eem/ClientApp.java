@@ -21,24 +21,14 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 public class ClientApp {
-  public static final void main(String args[]) {  
+  public static final void main(String args[]) {
 
-	String gatewayEndpoint = System.getenv("GATEWAY_ENDPOINT");  
+	String gatewayEndpoint = System.getenv("GATEWAY_ENDPOINT");
 	String kafkaClientId = System.getenv("KAFKA_CLIENT_ID");
 	String gatewayUsername = System.getenv("GATEWAY_USERNAME");
 	String gatewayPassword = System.getenv("GATEWAY_PASSWORD");
 	String flightNumber = System.getenv("FLIGHT_NUMBER");
 	Schema.Parser schemaDefinitionParser = new Schema.Parser();
-    Schema schema = null;
-    try {
-      schema = schemaDefinitionParser.parse(new File("flight-delays.avsc"));
-    } catch (Exception e) {
-      e.printStackTrace();
-      System.exit(1);
-    }
-
-    GenericDatumReader<GenericRecord> reader = new GenericDatumReader<GenericRecord>(schema);
-
     Properties props = new Properties();
 
     props.put("bootstrap.servers", gatewayEndpoint);
@@ -51,9 +41,9 @@ public class ClientApp {
     props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_SSL");
 
     props.put(SaslConfigs.SASL_MECHANISM, "PLAIN");
-    props.put(SaslConfigs.SASL_JAAS_CONFIG, 
+    props.put(SaslConfigs.SASL_JAAS_CONFIG,
       "org.apache.kafka.common.security.plain.PlainLoginModule required " +
-      "username=\""+gatewayUsername+"\" " + 
+      "username=\""+gatewayUsername+"\" " +
       "password=\""+gatewayPassword+"\";");
     // The Kafka cluster may have encryption enabled. Contact the API owner for the appropriate TrustStore configuration.
     props.put(SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG, "/etc/ssl/eem/eem.jks");
@@ -61,12 +51,12 @@ public class ClientApp {
     props.put(SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG, "password");
     props.put(SslConfigs.SSL_TRUSTSTORE_TYPE_CONFIG, "JKS");
     props.put("ssl.endpoint.identification.algorithm", "");
-    
+
     KafkaConsumer consumer = new KafkaConsumer<String, byte[]>(props);
     consumer.subscribe(Collections.singletonList("flight-delays"));
     try {
       while(true) {
-    	
+
         ConsumerRecords<String, byte[]> records = consumer.poll(Duration.ofSeconds(1));
         for (ConsumerRecord<String, byte[]> record : records) {
         	byte[] value = record.value();
@@ -89,6 +79,6 @@ public class ClientApp {
       e.printStackTrace();
       consumer.close();
       System.exit(1);
-    }   
+    }
   }
 }
