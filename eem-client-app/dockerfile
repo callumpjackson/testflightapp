@@ -1,0 +1,3 @@
+FROM openjdk:16.0.1
+COPY target/client-application-1.0-jar-with-dependencies.jar /app/client-application-1.0-jar-with-dependencies.jar
+CMD ["java", "-jar", "/app/client-application.jar"]
