@@ -86,10 +86,10 @@
                 var status = data[i].delay == 0 ? 'On Time' : 'Delayed';
                 var estTime = data[i].estimatedDepartureTime.slice(data[i].estimatedDepartureTime.length - 5);
                 var estimatedStr = data[i].delay == 0 ? "" : "to " + estTime;
-                tr.innerHTML = 
-                    '<td class="cell time">' + data[i].scheduledDepartureTime + '</td>' + 
-                    '<td class="cell destination">' + data[i].destination + '</td>' + 
-                    '<td class="cell number">' + data[i].number + '</td>' + 
+                tr.innerHTML =
+                    '<td class="cell time">' + data[i].scheduledDepartureTime + '</td>' +
+                    '<td class="cell destination">' + data[i].destination + '</td>' +
+                    '<td class="cell number">' + data[i].number + '</td>' +
                     '<td class="cell status">' + status + ' ' + estimatedStr + '</td>';
                 mainContainer.appendChild(tr);
             }
@@ -107,14 +107,16 @@
             var data = '{"delay": ' + delay + '}';
             reset();
             xhr.send(data);
-            setTimeout(() => {  reload(); }, 2000);         
+            setTimeout(() => {  reload(); }, 2000);
         }
 
-        reload();
+
         window.setTimeout( function() {
                 reset();
                 reload();
             }, 300000);
+
+        reload();
     </script>
 </body>
 </html>
